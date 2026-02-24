@@ -1,83 +1,24 @@
-## Welcome To ( সহজ সরল সিম্পল ) Assignment - 4 
+Answer to the Question 1:
+getElementById can select only id and returns 1 element.
+getElementsByClassName can select classes and return HTML collection.
+querySelector only returns first match where querySelectorAll returns us all the nodelist.
+
+Ans to the Question 2:
+first create an element by using document.createElement and keep it in a container. Than container.innerText and we will write which we want to enter as innerText. Finally we can enter as document.body.appenchild(thatContainer) to insert into the page.
+const sid = document.createElement('div');
+sid.innerText = "Programing Hero";
+document.body.appendChild(sid);
 
 
----
-# 📅 Deadline For 60 marks: 23th February, 2026 (11:59 pm ⏱️)
-# 📅 Deadline For 50 marks: 24th February, 2026 (11:59 pm ⏱️)
-# 📅 Deadline For 30 marks: Any time after 24th February.
+Ans to the Question no. 3:
+Event bubbling is a javascript term where an event starts from target element and moves upwards to its parent element. Like family where parent bubbles the child. In html document, there are also child in some parentNodes. The direction is -
+child -> Parent -> grand parent -> document
 
+Ans to the question no. 4
+Event delegation means add event to parents for controlling it's children.
+It is very Usefull because it works for dynamic elemnt, need less code to control also gives better performance.
 
-# Main Requirements
-
-## Design Part
-
-## Dashboard
-- Website name and Create a dashboard like figma 
-- The section should be responsive for mobile devices. It is totally up to you. 
-
-## Available Jobs Section
-- A title on the left side, jobs count on the right side 
-- 3 different tab  below the section title 
-- Minimum 8 cards with:
-	- companyName
-	- position
-	- location
-	- type
-	- salary
-	- description
-	- 2 buttons: Interview, Rejected
-- By default all the jobs data will show on All tab, and the Interview, Rejected tab will show “No jobs Available” message with a subtitle below and an icon/image on the above
-
-- The section should be responsive for mobile devices. It is totally up to you.
-
---- 
-
-## Functionalities Part
-- Clicking on Interview button on the card 
-    - will add the data on Interview tab 
-    - add the status as Interview.
-    - Will increase the the count of interview in Dashboard 
-
-- Clicking on Rejected button on the card 
-    - will add the data on Rejected tab 
-    - add the status as Rejected.
-    - Will increase the the count of Rejected in Dashboard
-
-- Enable toggle between Interview and rejected button(you can select Rejected button after clicking on Interview, and Interview button after clicking on Rejected button). It will change the tab and dashboard count also. It will show tab wise jobs count on the right.
-
----
-
-# Challenges Requirements
-- Clicking on the delete button will remove that card from the UI, and the count will be deducted from the dashboard card and the main section.
-- No lorem ipsum text on your website. At least 8 meaningful commits in your project.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
-
-
-## Answers to Questions
-
-### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
-
-### 2. How do you create and insert a new element into the DOM?
-
-### 3. What is Event Bubbling? And how does it work?
-
-### 4. What is Event Delegation in JavaScript? Why is it useful?
-
-### 5. What is the difference between preventDefault() and stopPropagation() methods?
-
----
-
-
-**Technology Stack:**
-- HTML
-- CSS (Vanilla/Tailwind/DaisyUI)
-- JavaScript (Vanilla)
-
-
---- 
-
-## What to submit: 
-
-1. GitHub Repository Link: 
-2. Live Site Link: 
+Ans to the Que. no 5.
+PreventDefault() and stopPropagation() are two method to control event behaviour.
+PreventDefault() prevents browser default action for element. It can block or stop from submitting.
+stopPropagation() try to stop the event from bubbling to parent elements so that parent doesn't run properly.

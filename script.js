@@ -1,6 +1,6 @@
 let interviewList = [];
 let rejectedList = [];
-let currentStatus = 'allBtn';
+
 
 let total = document.getElementById("total");
 let interview = document.getElementById("interview");
@@ -82,10 +82,9 @@ if (event.target.id === 'int-btn'){
     }
 
     rejectedList = rejectedList.filter(item=> item.companyName != info.companyName)
+     renderAppoint ();
+    renderReject ();
     calculateCount();
-    if (currentStatus == "interviewBtn"){
-        renderAppoint ();
-    }
 
 }  
 else if (event.target.id === 'rej-btn'){
@@ -113,18 +112,38 @@ else if (event.target.id === 'rej-btn'){
         rejectedList.push(info);
     }
     interviewList = interviewList.filter(item=> item.companyName != info.companyName);
-    calculateCount()
-  renderReject ()
+    renderReject ();
+    renderAppoint ();
+    calculateCount();
 }  
+else if (event.target.classList.contains('fa-trash-can')) {
+    const card = event.target.closest('.flex');
+    const companyName = card.querySelector('.companyName').innerText;
+
+    interviewList = interviewList.filter(item=> item.companyName !== companyName);
+    rejectedList = rejectedList.filter(item=> item.companyName !== companyName);
+
+card.remove();
+calculateCount();
 }
-)
+})
 
  
 
-const recieved = document.getElementById('iRecieved')
+
 
 function renderAppoint (){
-
+    const recieved = document.getElementById('iRecieved');
+    
+    if (interviewList.length ==0){
+        recieved.innerHTML = `  <div class="border p-8 flex justify-center items-center flex-col py-[100px] rounded-2xl">
+            <img src="./jobs.png" alt="">
+            <h1 class="text-[#002C5C] font-semibold text-[24px]">No Jobs Available</h1>
+            <p class="text-[#64748B] font-normal text-[16px]">Check back soon for new job opportunities</p>
+        </div>
+        `
+        return;
+    }
     recieved.innerHTML='';
 
         for (let inter of interviewList){
@@ -147,7 +166,7 @@ function renderAppoint (){
                 </div>
             </div>
             <div>
-                <i class="fa-regular fa-trash-can"></i>
+                <button class="cursor-pointer"> <i class="fa-regular fa-trash-can"></i></button>
             </div>
           `
           recieved.appendChild(div)
@@ -155,9 +174,18 @@ function renderAppoint (){
 
 }
 
- const reject = document.getElementById('rRecieved')
 
  function renderReject (){
+     const reject = document.getElementById('rRecieved')
+    if (rejectedList.length ==0){
+        reject.innerHTML = `  <div class="border p-8 flex justify-center items-center flex-col py-[100px] rounded-2xl">
+            <img src="./jobs.png" alt="">
+            <h1 class="text-[#002C5C] font-semibold text-[24px]">No Jobs Available</h1>
+            <p class="text-[#64748B] font-normal text-[16px]">Check back soon for new job opportunities</p>
+        </div>
+        `
+        return;
+    }
 
     reject.innerHTML='';
 
@@ -181,10 +209,15 @@ function renderAppoint (){
                 </div>
             </div>
             <div>
-                <i class="fa-regular fa-trash-can"></i>
+               <button class="cursor-pointer"> <i class="fa-regular fa-trash-can"></i></button>
             </div>
           `
           reject.appendChild(div);
         }
 
 }
+
+
+
+
+

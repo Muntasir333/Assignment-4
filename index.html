@@ -40,16 +40,17 @@
          <hr class="mt-5">
     </header>
 
+    <main>
     <section class="available w-[80%] mx-auto mt-[60px] mb-4px">
         <div class="flex justify-between mb-6">
         <p class="font-semibold text-[20px]">Available Jobs</p>
-        <P>8 jobs</P>
+        <P id="count">8 jobs</P>
         </div>
 
         <div class="button gap-[100px]">
-            <button onclick="toggle ('allBtn')" id="allBtn" class="bg-[#3B82F6] text-white px-8 py-2.5 rounded-2xl">All</button>
-            <button onclick="toggle ('interviewBtn')" id="interviewBtn" class="bg-gray-100 px-8 py-2.5 rounded-2xl">Interview</button>
-            <button onclick="toggle ('rejectedBtn')" id="rejectedBtn" class="bg-gray-100 px-8 py-2.5 rounded-2xl">Rejected</button>
+            <button onclick="toggle ('allBtn'); show('card')";  id="allBtn" class="bg-[#3B82F6] text-white px-8 py-2.5 rounded-2xl">All</button>
+            <button onclick="toggle ('interviewBtn'); show('iRecieved')" id="interviewBtn" class="bg-gray-100 px-8 py-2.5 rounded-2xl">Interview</button>
+            <button onclick="toggle ('rejectedBtn'); show('rRecieved')" id="rejectedBtn" class="bg-gray-100 px-8 py-2.5 rounded-2xl">Rejected</button>
         </div>
     </section>
 
@@ -231,6 +232,22 @@
         </div>
 
     </section>
+
+    <section id="iRecieved" class=" w-[80%] mx-auto mt-[60px] hidden">
+        <div class="border p-8 flex justify-center items-center flex-col py-[100px] rounded-2xl">
+            <img src="./jobs.png" alt="">
+            <h1 class="text-[#002C5C] font-semibold text-[24px]">No Jobs Available</h1>
+            <p class="text-[#64748B] font-normal text-[16px]">Check back soon for new job opportunities</p>
+        </div>
+    </section>
+    <section id="rRecieved" class=" w-[80%] mx-auto mt-[60px] hidden">
+        <div class="border p-8 flex justify-center items-center flex-col py-[100px] rounded-2xl">
+            <img src="./jobs.png" alt="">
+            <h1 class="text-[#002C5C] font-semibold text-[24px]">No Jobs Available</h1>
+            <p class="text-[#64748B] font-normal text-[16px]">Check back soon for new job opportunities</p>
+        </div>
+    </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@
     <header class=" w-[80%] mx-auto mt-[60px]">
         <h2 class="text-3xl font-bold text-[#002C5C] mb-5">Job Application Tracker</h2>
 
-        <div id="dashboard" class="grid grid-cols-3 gap-3">
+        <div id="dashboard" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="border-2 border-amber-50 bg-base-200 p-5">
                 <p>Total</p>
                 <p id="total" class="font-bold text-2xl text-[#002C5C]">0</p>
@@ -47,7 +47,7 @@
         <P id="count">8 jobs</P>
         </div>
 
-        <div class="button gap-[100px]">
+        <div class="button flex flex-col sm:flex-row gap-2 ">
             <button onclick="toggle ('allBtn'); show('card')";  id="allBtn" class="bg-[#3B82F6] text-white px-8 py-2.5 rounded-2xl">All</button>
             <button onclick="toggle ('interviewBtn'); show('iRecieved')" id="interviewBtn" class="bg-gray-100 px-8 py-2.5 rounded-2xl">Interview</button>
             <button onclick="toggle ('rejectedBtn'); show('rRecieved')" id="rejectedBtn" class="bg-gray-100 px-8 py-2.5 rounded-2xl">Rejected</button>

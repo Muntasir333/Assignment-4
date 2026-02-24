@@ -1,5 +1,6 @@
 let interviewList = [];
 let rejectedList = [];
+let currentStatus = 'allBtn';
 
 
 let total = document.getElementById("total");
@@ -10,10 +11,23 @@ let count = document.getElementById('count');
 const allCardSection = document.getElementById('card')
 
 function calculateCount (){
-    total.innerText = allCardSection.children.length;
-    count.innerText = allCardSection.children.length + ' ' + 'jobs';
+const jobs = allCardSection.children.length;
+let currentJob = 0;
+if (currentStatus === 'allBtn') {
+    currentJob = jobs;
+}
+    else if (currentStatus === 'interviewBtn'){
+       currentJob = interviewList.length;
+    }
+    else if ( currentStatus === 'rejectedBtn'){
+         currentJob = rejectedList.length;
+    }
+    count.innerText = `${currentJob} of ${jobs} jobs`;
+
+    total.innerText = jobs;
     interview.innerText = interviewList.length;
     rejected.innerText = rejectedList.length;
+
 }
 calculateCount();
 
@@ -37,6 +51,8 @@ function toggle(id){
     currentStatus = id;
     selected.classList.remove('bg-gray-100', 'text-black');
     selected.classList.add('bg-[#3B82F6]', 'text-white');
+
+    calculateCount();
 }
 
 
@@ -51,6 +67,8 @@ function show(id){
 
     const select = document.getElementById(id);
     select.classList.remove('hidden');
+
+    calculateCount();
 }
 
 
@@ -124,6 +142,9 @@ else if (event.target.classList.contains('fa-trash-can')) {
     rejectedList = rejectedList.filter(item=> item.companyName !== companyName);
 
 card.remove();
+
+renderAppoint();
+renderReject();
 calculateCount();
 }
 })
